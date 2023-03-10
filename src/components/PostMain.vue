@@ -19,9 +19,6 @@ export default {
                 axios.get(`${this.baseUrl}/api/projects`, { params: { page: project_page } }).then((response) => {
                     if (response.data.success) {
 
-                        // se nel backend faccio post::all 
-                        // this.projects = response.data.results 
-
                         // con paginate
                         this.projects = response.data.results.data;
                         this.currentPage = response.data.results.current_page;
@@ -59,6 +56,7 @@ export default {
                         <img :src="post.image != null ? `${baseUrl}/storage/${post.image}` : 'https://picsum.photos/200/300'" class="card-img-top" alt="Image">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
+                            <p class="card-text">Tipologia progetto: {{post.type.name}}</p>
                             <a href="#" class="btn btn-sm btn-success">Leggi l'articolo</a>
                         </div>
                     </div>
@@ -67,7 +65,7 @@ export default {
             <div class="row text-center">
                 <div class="col-12">
                     <nav>
-                        <ul class="pagination">
+                        <ul class="pagination list-unstyled d-flex">
                             <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
                                 <button class="page-link" @click="getPosts(currentPage - 1)">Prev</button>
                             </li>
