@@ -65,11 +65,14 @@ export default {
                     <nav>
                         <ul class="pagination justify-content-center">
                             <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
-                                <button class="page-link" @click="getPosts(currentPage - 1)">Prev</button>
-                            </li>
-                            <li :class="currentPage === lastPage ? 'disabled' : 'page-item'">
-                                <button class="page-link" @click="getPosts(currentPage + 1)">Next</button>
-                            </li>
+                        <button class="page-link" @click="getPosts(currentPage - 1)">Prev</button>
+                    </li>
+                    <li :class="currentPage === i ? 'disabled' : 'page-item'" v-for="i in lastPage">
+                        <button class="page-link" @click="getPosts(i)">{{i}}</button>
+                    </li>
+                    <li :class="currentPage === lastPage ? 'disabled' : 'page-item'">
+                        <button class="page-link" @click="getPosts(currentPage + 1)">Next</button>
+                    </li>
                         </ul>
                     </nav>
                 </div>
