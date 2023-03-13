@@ -1,9 +1,13 @@
 
 <script>
 import axios from 'axios';
+import SinglePost from './SinglePost.vue';
 
 
 export default {
+    components: {
+        SinglePost
+    },
     name: "PostMain",
     data() {
         return {
@@ -53,15 +57,7 @@ export default {
             </div>
             <div v-else class="d-flex flex-wrap gap-5 justify-content-center">
                 <div v-for="post in projects" :key="post.id" class="col-md-3">
-                    <div class="card my-3">
-                        <img :src="post.image != null ? `${baseUrl}/storage/${post.image}` : 'https://picsum.photos/200/300'" class="card-img-top" alt="Image">
-                        <div class="card-body">
-                            <h5 class="card-title">{{post.title}}</h5>
-                            <p class="card-text">Tipologia progetto: {{post.type.name}}</p>
-                            <p class="card-text ">Tecnologie utilizzate: <span class="badge bg-info mx-1" v-for="technology in post.technologies"> {{technology.name}} </span></p>
-                            <a href="#" class="btn btn-sm btn-success">Leggi l'articolo</a>
-                        </div>
-                    </div>
+                    <SinglePost :post="post" :baseUrl="baseUrl"></SinglePost>
                 </div>
             </div>
             <div class="row text-center">
