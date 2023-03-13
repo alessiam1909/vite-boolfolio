@@ -63,9 +63,9 @@ export default {
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <nav>
-                        <ul class="pagination list-unstyled d-flex">
+                        <ul class="pagination justify-content-center">
                             <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
                                 <button class="page-link" @click="getPosts(currentPage - 1)">Prev</button>
                             </li>

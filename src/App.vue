@@ -6,6 +6,6 @@ import PostMain from './components/PostMain.vue'
   <PostMain></PostMain>
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+ @use './styles/app.scss' as *;
 </style>
