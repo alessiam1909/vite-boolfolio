@@ -2,6 +2,7 @@
 <script>
 import axios from 'axios';
 
+
 export default {
     name: "PostMain",
     data() {
@@ -57,13 +58,14 @@ export default {
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
                             <p class="card-text">Tipologia progetto: {{post.type.name}}</p>
+                            <p class="card-text ">Tecnologie utilizzate: <span class="badge bg-info mx-1" v-for="technology in post.technologies"> {{technology.name}} </span></p>
                             <a href="#" class="btn btn-sm btn-success">Leggi l'articolo</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-12 text-center">
+                <div class="col-12">
                     <nav>
                         <ul class="pagination justify-content-center">
                             <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
