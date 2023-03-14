@@ -1,9 +1,10 @@
 <script setup>
-import PostMain from './components/PostMain.vue'
+
+import AppFooter from './components/AppFooter.vue'
 </script>
 
 <template>
-  <PostMain></PostMain>
+  <AppFooter></AppFooter>
 </template>
 
 <style scoped lang="scss">

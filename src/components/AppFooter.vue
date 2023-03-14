@@ -8,7 +8,7 @@ export default {
 <template lang="">
     <footer class="background-footer">
         <div class="container">
-            <div class="row mt-5">
+            <div class="row ">
                 <div class="col-4">
                     <div class="logo">
                         Logo
@@ -20,6 +20,10 @@ export default {
     </footer>
 </template>
 
-<style lang="">
-    
+<style lang="scss">
+    .background-footer{
+        color: white;
+        padding: 5px 0;
+        background-color: #a75656;
+    }
 </style>
