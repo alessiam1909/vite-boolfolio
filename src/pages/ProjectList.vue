@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import SinglePost from './SinglePost.vue';
+import SinglePost from '../components/SinglePost.vue';
 
 
 export default {
