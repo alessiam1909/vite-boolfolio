@@ -16,7 +16,7 @@
                 <h5 class="card-title">{{post.title}}</h5>
                 <p class="card-text">Tipologia progetto: {{post.type.name}}</p>
                 <p class="card-text ">Tecnologie utilizzate: <span class="badge bg-warning mx-1" v-for="technology in post.technologies"> {{technology.name}} </span></p>
-                <a href="#" class="btn btn-sm btn-success">Leggi l'articolo</a>
+                <router-link :to="{name:'show', params:{slug:post.slug}}" class="btn btn-sm btn-success">Leggi l'articolo</router-link>
             </div>
         </div>
     </div>
