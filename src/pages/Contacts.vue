@@ -1,9 +1,40 @@
 <script>
+import axios from 'axios'; 
     export default {
             name: 'Contacts',
             data(){
                 return{
+                    name: '',
+                    surname: '',
+                    email: '',
+                    phone: '',
+                    message: '',
+                    baseUrl: 'http://127.0.0.1:8000',
+                    erroe: null
+                }
+            },
+            methods: {
+                sendForm(){
+                    const data = {
+                        name: this.name,
+                        surname: this.surname,
+                        email: this.email,
+                        phone: this.phone,
+                        message: this.message
+                    }
 
+                    axios.post(`${this.baseUrl}/api/contacts`, data).then((response) =>{
+                        if(!this.success){
+                            this.errors = response.data.errors
+                        }
+                        else{
+                            this.name = '',
+                            this.surname = '',
+                            this.email = '',
+                            this.phone = '',
+                            this.message = ''
+                        };
+                    })
                 }
             }
     }
@@ -33,7 +64,7 @@
             </div>
             <div class="col-12">
                 <h5 class="text-center">Scrivici: </h5>
-                <form action="">
+                <form  @submit.prevent="sendForm">
                     <div class="row">
                         <div class="col12- col-md-6 my-2 px-4">
                             <label class="control-label my-2" for="nome">Inserisci il tuo nome: </label>
@@ -53,6 +84,7 @@
 
                         </div>
                         <div class="col-12 my-2 px-4">
+                            <label class="control-label my-2" for="messaggio">Inserisci un messaggio: </label>
                             <textarea name="messaggio" id="messaggio" class="form-control" v-model="message" placeholder="Messaggio"></textarea>
                         </div>
                         <div class="col-12 my-2 text-center">
