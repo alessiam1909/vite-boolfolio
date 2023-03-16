@@ -14,7 +14,7 @@ export default {
                 },
                 {
                     label: 'Contatti',
-                    routeName: ''
+                    routeName: 'Contacts'
                 },
             ]
         }
