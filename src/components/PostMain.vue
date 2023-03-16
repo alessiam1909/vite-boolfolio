@@ -51,7 +51,7 @@ export default {
         </div>
         <div class="col-12">
             <div v-if="loading" class="d-flex justify-content-center">
-                <div class="spinner-border text-primary" role="status">
+                <div class="spinner-border text-primary loader" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
@@ -86,7 +86,7 @@ export default {
 <style lang="scss" scoped>
 .loader {
     border: 16px solid #f3f3f3;
-    border-top: 16px solid #d024d6;
+    border-top: 16px solid #d12a5c;
     border-radius: 50%;
     width: 120px;
     height: 120px;
