@@ -32,8 +32,8 @@ export default {
                         Logo
                     </div>
                     <ul class="list-unstyled d-flex mx-5">
-                        <li v-for="(item, index) in menu" :key="index"  class="p-3 text-light">
-                        <router-link :to="{name:item.routeName}" >{{item.label}}</router-link>
+                        <li v-for="(item, index) in menu" :key="index"  class="p-3 ">
+                        <router-link :to="{name:item.routeName}" class="text-light text-decoration-none text-uppercase" >{{item.label}}</router-link>
                         </li>
                     </ul>
                 </div>

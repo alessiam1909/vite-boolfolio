@@ -10,7 +10,8 @@ import axios from 'axios';
                     phone: '',
                     message: '',
                     baseUrl: 'http://127.0.0.1:8000',
-                    erroe: null
+                    erroe: null,
+                    loading: false
                 }
             },
             methods: {
@@ -22,17 +23,19 @@ import axios from 'axios';
                         phone: this.phone,
                         message: this.message
                     }
-
+                    this.loading = true;
                     axios.post(`${this.baseUrl}/api/contacts`, data).then((response) =>{
                         if(!response.data.success){
-                            this.errors = response.data.errors
+                            this.errors = response.data.errors;
+                            this.loading = false;
                         }
                         else{
                             this.name = '',
                             this.surname = '',
                             this.email = '',
                             this.phone = '',
-                            this.message = ''
+                            this.message = '',
+                            this.loading = false
                         };
                         setTimeout(() => {
                         this.$router.push({ 'name': 'ThankYou' });
@@ -91,7 +94,7 @@ import axios from 'axios';
                             <textarea name="messaggio" id="messaggio" class="form-control" v-model="message" placeholder="Messaggio"></textarea>
                         </div>
                         <div class="col-12 my-2 text-center">
-                            <button type="submit" class="send-email text-light p-2">Invia</button>
+                            <button type="submit" class="send-email" :disabled="loading">{{loading ? 'Invio in corso...' : 'Invia'}}</button>
                         </div>
                     </div>
                 </form>
@@ -103,6 +106,7 @@ import axios from 'axios';
 
 .send-email{
     background-color: #d12a5c;
+    color: white;
     border: none;
     outline: none;
     width: 100px;
