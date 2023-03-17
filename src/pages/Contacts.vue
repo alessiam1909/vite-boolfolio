@@ -24,7 +24,7 @@ import axios from 'axios';
                     }
 
                     axios.post(`${this.baseUrl}/api/contacts`, data).then((response) =>{
-                        if(!this.success){
+                        if(!response.data.success){
                             this.errors = response.data.errors
                         }
                         else{
@@ -34,6 +34,9 @@ import axios from 'axios';
                             this.phone = '',
                             this.message = ''
                         };
+                        setTimeout(() => {
+                        this.$router.push({ 'name': 'ThankYou' });
+                    }, 2000)
                     })
                 }
             }

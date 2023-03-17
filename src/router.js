@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage.vue';
 import ProjectList from './pages/ProjectList.vue';
 import ShowProject from './pages/ShowProject.vue';
 import Contacts from './pages/Contacts.vue';
+import ThankYou from './pages/ThankYou.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/contacts',
             name: 'Contacts',
             component: Contacts
+        },
+        {
+            path: '/thankyou',
+            name: 'ThankYou',
+            component: ThankYou
         },
 
 
